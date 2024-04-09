@@ -1,0 +1,49 @@
+# create a docker image from source code
+# create vistual
+version: '3.8'
+services:
+  nestjs-database:
+    image: mysql:latest
+    container_name: nestjs-database
+    restart: always
+    ports:
+      - 3307:3306 #{port in host MyPC} : {port in Container}
+
+      #environment, variabeles, like
+    environment:
+      MYSQL_ROOT_PASSWORD: đ̉đôâđđâ
+      MYSQL_DATABASE: nestjs-basics
+    networks:
+      - nestjs-networks
+
+      #Create another container for "Test"
+
+  test-database:
+    image: mysql:latest
+    container_name: test-database
+    restart: always
+    ports:
+      - 3308:3306 #{port in host MyPC} : {port in Container}
+
+      #environment, variabeles, like
+    environment:
+      MYSQL_ROOT_PASSWORD: đ̉đôâđđâ
+      MYSQL_DATABASE: nestjs-basics
+    networks:
+      - nestjs-networks
+
+networks:
+  nestjs-networks:
+# docker network ls : liet ke cac mạng network trong docker
+# docker ls : liệt kê các image
+#  docker compose up -d : create new image compose with file run ngầm
+# docker compose down : tắt image
+#docker ps -a : liệt kê các image trong docker
+#docker start tên image : chạy iamge
+#docker exec -it nestjs-database <tên docker> bash
+
+# npx prisma init : tạo 1 môi trường rỗng để prisma làm việc vs db
+#npx prisma --hepl : xem lệnh prisma
+#npx prisma migrate dev
+#npx prisma studio
+#mysql -u root -p
