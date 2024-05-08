@@ -13,9 +13,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   ) {
     super({
       //token string is added to every request (except login / register)
-
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-
       secretOrKey: configService.get('JWT_SECRET'),
     });
   }
@@ -24,6 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     const user = await this.prismaService.user.findUnique({
       where: {
         id: payload.sub,
+        email: payload.email,
       },
     });
 
@@ -31,6 +30,4 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
 
     return user;
   }
-
-  //  khi send token len pahi co validate
 }

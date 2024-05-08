@@ -7,6 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
 
+  // config files swagger
   const config = new DocumentBuilder()
     .setTitle('API NESTJS BASIC')
     .setDescription('The API description')
