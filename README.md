@@ -1,7 +1,12 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+```
+npm i https://github.com/WaveD2/nestjs-tutorial.git
 
-## customer provider
 
-### useClass useValue factory
+npx prisma migrate dev --name your_migration_name
+
+npm run prisma:dev:deploy
+
+npm run dev:start
+
+
+```
